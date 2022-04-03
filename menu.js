@@ -31,25 +31,16 @@
 */
 
 //CODE HERE
-// class Pizza {
-//     constructor(name,price,category,popularity,rating,tags) {
-//         this.name = name;
-//         this.price = price;
-//         this.category = category;
-//         this.popularity = popularity;
-//         this.rating = rating;
-//         this.tags = tags
-//     }
-// }
 const pizza = {
-    name: 'That Really Good One.',
+    name: 'Pepperoni',
     price: 18.99,
-    category: "Entree",
-    popularity: 3,
-    rating: 3,
-    tags: ['kids','meat lovers']
+    category: "entree",
+    popularity: 8,
+    rating: 8,
+    tags: ['kids','meat lovers', 'cheese', 'yum']
 }
 
+//console.log(pizza)
 //////////////////PROBLEM 2////////////////////
 /* 
     Let's print a few values from our pizza object.
@@ -68,9 +59,8 @@ const pizza = {
     get the value.
 */
 
-//CODE HERE
-//console.log(pizza.price)
-
+//CODE HERE nested data so . notation and then bracket notation to access the array.
+//console.log(pizza.tags[1])
 /*
     Third, destructure the price off of the
     pizza object.
@@ -79,8 +69,7 @@ const pizza = {
 */
 
 //CODE HERE
-const {price: differentPrice} = pizza
-
+const {price} = pizza
 // console.log(differentPrice)
 /*
     Fourth, and last, destructure the category
@@ -90,8 +79,8 @@ const {price: differentPrice} = pizza
 */
 
 //CODE HERE
-const {category: diffCategory} = pizza
-// console.log(diffCategory)
+const {category} = pizza
+// console.log(category,price)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -105,8 +94,50 @@ const {category: diffCategory} = pizza
     data in some functions that you'll write.
 */
 
-//CODE HERE
-const foodArr = ['oreo', 20.99, 'dessert', 5, 8]
+//CODE HERE needed an array of more pizza types
+
+const foodArr = [
+    {
+        name: 'Hawaiian',
+        price: 20.99,
+        category: "entree",
+        popularity: 1000,
+        rating: 1000,
+        tags: ['kids','fan favorite', 'cheese', 'ham', 'yum']
+    },
+    {
+        name: 'Cheese',
+        price: 15.99,
+        category: "entree",
+        popularity: 1,
+        rating: 1,
+        tags: ['kids','meat lovers', 'cheese', 'yum']
+    },
+    {
+        name: 'Bacon BBQ',
+        price: 25.99,
+        category: "entree",
+        popularity: 8,
+        rating: 9,
+        tags: ['onion','meat lovers', 'cheese', 'yum']
+    },
+    {
+        name: 'Garlic Bread',
+        price: 11.99,
+        category: "appetizer",
+        popularity: 4,
+        rating: 4,
+        tags: ['kids', 'awesome', 'cheese', 'yum']
+    },
+    {
+        name: 'Margherita',
+        price: 18.99,
+        category: "entree",
+        popularity: 10,
+        rating: 10,
+        tags: ['all ages', 'classic', 'cheese', 'yum', 'basil']
+    }
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -123,12 +154,11 @@ const foodArr = ['oreo', 20.99, 'dessert', 5, 8]
 
 //CODE HERE NEEDS WORK
 
-// const filteredFood = food.filter(function(category) {
-//     return pizza.category === 'Entree'
-// })
+const filteredFood = foodArr.filter(pizzaObj => {
+    return pizzaObj.tags.includes('yum')
+})
 
-
-// console.log(filteredFood)
+// console.log (filteredFood)
 //////////////////PROBLEM 5////////////////////
 /* 
     Now let's write a function that's a little
@@ -161,7 +191,7 @@ const foodArr = ['oreo', 20.99, 'dessert', 5, 8]
         if it is, return objects whose value for the given
         property is greater than the `number` passed in
 
-        If the type isn't `below`, return objects whose
+        If the type is `below`, return objects whose
         value for the given property is less than the 
         `number` passed in
     
@@ -169,13 +199,24 @@ const foodArr = ['oreo', 20.99, 'dessert', 5, 8]
 */
 
 //CODE HERE
-
-
+const filterByProperty = (property, number, type) =>{
+    const filteredArr = foodArr.filter(product => {
+        if(type === 'above'){
+            return product[property] > number
+        } else if(type === 'below'){
+            return product[property] < number
+        } else {
+            return 'You did not pass in a valid type.'
+        }
+    })
+    return filteredArr
+}
 /*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
+You'll have to console.log to see the filtered array
 */
 
 //CODE HERE
+// console.log(filterByProperty('price', 20, 'above'))

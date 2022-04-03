@@ -51,7 +51,7 @@ const greetUser = username => {
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
-// //CODE HERE
+//CODE HERE
 // const canWeDeliver = zipCode => {
 //     if (deliveryAreaZipCodes.includes(zipCode)){
 //         return "You're in our delivery zone!"
@@ -81,12 +81,13 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 // CODE HERE
 const canWeDeliverTwo = zipCode => {
     for (let i = 0; i < deliveryAreaZipCodes.length; i++){
-        if (deliveryAreaZipCodes[i] == zipCode)
+        if (deliveryAreaZipCodes[i] == zipCode){
         return "You're in our delivery zone!"
-    } 
+        } 
+    }
     return "Sorry, we can't deliver to that address."
 }
-// console.log(canWeDeliverTwo(85208))
+ //console.log(canWeDeliverTwo(85205))
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -121,12 +122,9 @@ const deals = [
 */
 
 //CODE HERE NEEDS WORK
-// const change = (c,e) => {
-//     c.replace( e ,"10% Off!");
-// }
-// const deals2 = deals.replace(["15"], ["10"])
-// console.log(deals)
+deals[0].title = deals[0].title.replace('5', '0')
 
+//console.log(deals)
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -140,4 +138,7 @@ const deals = [
     to be displaying wrong on the live site.
 */
 
-//CODE HERE LOL I don't know how.
+//CODE HERE
+deals[1].desc = deals[1].desc.replace('March', 'April').trim()
+
+//console.log(deals)

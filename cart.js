@@ -33,15 +33,14 @@ const cart = [
     }
 ]
 
-//CODE HERE Needs work
-
-const summedPrice = cart.reduce(function(acc,elem){
-    elem = cart
-    acc = 0
-    return acc + cart.price
-})
+//CODE HERE
+const summedPrice = cart.reduce((acc,ord) => {
+    return acc + ord.price
+}, 0)
 
 //console.log(summedPrice)
+
+
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -61,7 +60,7 @@ const summedPrice = cart.reduce(function(acc,elem){
 const calcFinalPrice = (cartTotal, couponValue, tax) => {
     return ((cartTotal * (1+tax))-couponValue)
 }
-console.log(calcFinalPrice(120,10,.06))
+// console.log(calcFinalPrice(120,10,.06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -85,7 +84,14 @@ console.log(calcFinalPrice(120,10,.06))
 
 /*
     TEXT ANSWER HERE
-I would create a class including first name, last name, email address,customer id, and phone number slot with an optional address location for delivery. Name is included for obvious reasons, email is included so you can email receipts. Phone number is included so that updates and other information can be sent. Address is included so deliveries can be taken to the correct address. Lasly customer ID so that there is a unique identifier
+name string
+address string
+phone number string
+notes string
+allergies array
+hasCreditCard boolean
+regularCustomer boolean
+discount array of string
 */
 
 
@@ -95,13 +101,13 @@ I would create a class including first name, last name, email address,customer i
 */
 
 //CODE HERE
-class Customer {
-    constructor(firstName,lastName,email,phone,address,id) {
-        this.firstName;
-        this.lastName;
-        this.email;
-        this.phone;
-        this.address;
-        this.id;
-    }
+const customer = {
+    name: 'Jaren Reber',
+    address: '123 fun street',
+    phone: "123456789",
+    notes: "spends lots of mula",
+    allergies: ["n/a"],
+    hasCreditCard: true,
+    regularCustomer: true,
+    discounts: ['regular']
 }

@@ -29,19 +29,20 @@
     stored on the object.
 */
 
-//CODE HERE
+//CODE HERE wrong
 class Ticket {
     constructor(items, orderTime, customerId) {
-        this.items;
-        this.orderTime;
-        this.customerId;
+        this.items = items
+        this.orderTime = orderTime
+        this.customerId = customerId
+        this.status = 'queued'
     }
     updateStatus(newStatus){
-        this.status = "";
+        this.status = newStatus
+        console.log(`The order for customer ${this.customerId} is now ${this.status}`)
     }
 }
 
-console.log(`The order for customer ${this.customerId} is now ${this.status}.`)
 /*
     Create a new instance of your class.
     Save it to a variable called `firstTicket`.
@@ -54,13 +55,14 @@ console.log(`The order for customer ${this.customerId} is now ${this.status}.`)
 */
 
 //CODE HERE
-const firstTicket = new Ticket("Pepperoni pizza, Large Dr. Pepper", "8:18 PM", 575);
-console.log(firstTicket.items)
+const firstTicket = new Ticket(["Pepperoni pizza", "Large Dr. Pepper"], "8:18 PM", 575);
+// console.log(firstTicket)
 /*
     Call the `updateStatus` method on
     `firstTicket` passing in the string
     'cooking'
 */
 
-//CODE HERE yeah i don't know and don't have time RIP me
-updateStatus()
+//CODE HERE
+
+// firstTicket.updateStatus('cooking')
